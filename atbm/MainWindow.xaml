@@ -1,0 +1,57 @@
+﻿<Window x:Class="atbm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:atbm"
+        mc:Ignorable="d"
+        Title="AES" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="Auto" MinWidth="97"/>
+            <ColumnDefinition Width="36*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="534.04"/>
+        </Grid.RowDefinitions>
+
+        <!-- Encryption Section -->
+        <Border Margin="10,28,44,119" BorderBrush="Black" BorderThickness="1">
+            <StackPanel Grid.Column="0" Grid.Row="0" Margin="5,9,4,9">
+                <TextBlock Text="Input Data:"/>
+                <TextBox x:Name="txtInputData" TextWrapping="Wrap" Height="93" Margin="0 5" Width="287"/>
+                <TextBlock Text="Encryption Key:"/>
+                <TextBox x:Name="txtEncryptionKey" TextWrapping="Wrap" Height="58" Margin="0 5" Width="288"/>
+                <Button Content="Mã hóa" Click="Encrypt_Click" Height="53" Width="287"/>
+                <TextBlock Text="Encrypted Data:"/>
+                <TextBox x:Name="txtEncryptedData" TextWrapping="Wrap" Height="81"  RenderTransformOrigin="0.498,0.652" Width="288"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Read File-->
+        <Button Grid.Row="0" Content="Đọc file" Click="ReadFile_Click" Margin="356,143,2,368" RenderTransformOrigin="-0.389,1.864" Grid.ColumnSpan="2"/>
+
+        <!-- Random Key Button -->
+        <Button Grid.Row="0" Content="Sinh khóa" Click="RandomKey_Click" Margin="356,187,2,324" RenderTransformOrigin="-0.389,1.864" Grid.ColumnSpan="2"/>
+
+
+        <!--Trans data-->
+        <Button Content="Chuyển" Click="Chuyen_Click" Margin="356,230,2,281" Grid.ColumnSpan="2"/>
+
+        <Button Content="Xóa" Click="Xoa_Click" Margin="356,274,2,237" Grid.ColumnSpan="2"/>
+
+        <Border Margin="28,28,28,119" BorderBrush="Black" BorderThickness="1" Grid.Column="2">
+            <!-- Decryption Section -->
+            <StackPanel Grid.Column="2" Grid.Row="0" Margin="10,10,10,10">
+                <TextBlock Text="Encrypted Data:"/>
+                <TextBox x:Name="txtEncryptedData_Decrypt" TextWrapping="Wrap" Height="90" Margin="0 5"/>
+                <TextBlock Text="Decryption Key:"/>
+                <TextBox x:Name="txtDecryptionKey" Height="61" TextWrapping="Wrap" Margin="0 5" />
+                <Button Content="Giải mã" Click="Decrypt_Click" Height="53"/>
+                <TextBlock Text="Decrypted Data:"/>
+                <TextBox x:Name="txtDecryptedData" Height="84" TextWrapping="Wrap" IsReadOnly="True" RenderTransformOrigin="0.498,0.652"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
